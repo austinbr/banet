@@ -1,0 +1,83 @@
+@{
+    ViewData["Title"] = "Login/Reg";
+}
+@model banetexam2.Models.UserViewModel
+
+<div id="registration" style="display: inline-block; vertical-align: top;">
+    <h3>Register</h3>
+    <form asp-controller="User" asp-action="Register" method="POST">
+        <table>
+            <tr>
+                <td>
+                    <label>Name: </label>
+                    <input asp-for="Name" type="text" required/>
+                    <br>
+                    <span asp-validation-for="Name" style="color: red;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Username: </label>
+                    <input asp-for="Username" type="text" required/>
+                    <br>
+                    <span asp-validation-for="Username" style="color: red;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Email: </label>
+                    <input asp-for="Email" type="text" required/>
+                    <br>
+                    <span asp-validation-for="Email" style="color: red;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Password: </label>
+                    <input asp-for="Password" type="password" required/>
+                    <br>
+                    <span asp-validation-for="Password" style="color: red;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Confirm Password: </label>
+                    <input asp-for="cPassword" type="Password" required/>
+                    <br>
+                    <span asp-validation-for="cPassword" style="color: red;"></span>
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Create New User</button>
+    </form>
+</div>
+
+<div id="login" style="display: inline-block; vertical-align: top; margin-left: 35%;">
+    <h3>Login</h3>
+    <form action="Login" method="POST">
+        <table>
+            <tr>
+                <td>
+                    <label>Email: </label>
+                    <input name="Email" type="text" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Password: </label>
+                    <input name="Password" type="password" required/>
+                </td>
+            </tr>
+        </table>
+        <button type="submit">Login</button>
+    </form>
+    @if(ViewBag.errors != null)
+    {
+        <span style="color: red;"> @ViewBag.errors </span>
+    }
+
+    @if(ViewBag.success != null)
+    {
+        <span style="color: green;"> @ViewBag.success </span>
+    }
+</div>

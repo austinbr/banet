@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "User";
+}
+  
+<header>
+    <a href="/dashboard">Ideas</a>
+    <a href="/">Logout</a>
+</header>
+<br>
+
+<ul style="list-style: none;">
+    <li>Name: @ViewBag.user.Name </li>
+    <li>Username: @ViewBag.user.Username </li>
+    <li>Email: @ViewBag.user.Email </li>
+    <li>Total Ideas Posted: @ViewBag.user.Ideas.Count </li>
+    <li>Total Ideas Liked: @ViewBag.user.Likes.Count </li>
+</ul>

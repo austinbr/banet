@@ -1,0 +1,8 @@
+{
+  "name": "banetexam2",
+  "private": true,
+  "dependencies": {
+    "skeleton" : "2.0.4"
+    
+  }
+}

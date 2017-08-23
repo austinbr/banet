@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "dashboard";
+}
+  
+<header>
+    <h1>Welcome, @ViewBag.currUsername!</h1>
+    <a href="/">Logout</a>
+</header>
+
+<form action="idea" method="POST">
+    <input type="text" name="content" required>
+    <input type="submit" value="Idea!">
+</form>
+
+<table>
+@foreach(var idea in @ViewBag.ideas)
+{
+    <tr>
+        <td> <a href="/user/@idea.CreatedByObj.Id"> @idea.CreatedByObj.Name </a> </td>
+        <td> @idea.Content </td>
+        <td> <a href="/idea/@idea.Id"> @idea.Likes.Count likes!</a> </td>
+        <td> <a href="/like/@idea.Id">Like This!</a> </td>
+        @if(@ViewBag.currUser == @idea.CreatedBy)
+        {
+            <td> <a href="/delete/@idea.Id">Delete!</a> </td>
+        }
+    </tr>
+}
+</table>

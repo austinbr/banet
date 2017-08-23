@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "idea";
+}
+  
+<header>
+    <a href="/dashboard">Ideas</a>
+    <a href="/">Logout</a>
+</header>
+
+<table>
+    <tr>
+        <td> @ViewBag.idea.CreatedByObj.Name </td>
+        <td> @ViewBag.idea.Content </td>
+    </tr>
+</table>
+
+<h5>People who liked this Idea:</h5>
+<table>
+@foreach(var like in @ViewBag.idea.Likes)
+{
+    <tr>
+        <td> <a href="/user/@like.LikerObj.Id"> @like.LikerObj.Name </a> </td>
+        <td> @like.LikerObj.Username </td>
+    </tr>
+}
+</table>
